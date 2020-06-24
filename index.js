@@ -9,6 +9,8 @@ app.use(express.json());
 app.use(cors({ origin: 'http://localhost:4200' }));
 
 app.use('/api/usuario', require('./routes/usuario.router'));
+app.use('/api/afiliado', require('./routes/afiliado.router'));
+
 
 //setting
 app.set('port', process.env.PORT || 3000);
