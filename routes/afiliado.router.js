@@ -10,5 +10,7 @@ router.get('/:id', afiliadoCtrl.getAfiliado);
 router.put('/:id', afiliadoCtrl.editAfiliado);
 router.delete('/:id', afiliadoCtrl.deleteAfiliado);
 
+router.post('/email', afiliadoCtrl.getAfiliadoByEmail);
+
 //exportacion del modulo de rutas
 module.exports = router;

@@ -1,4 +1,5 @@
 const Afiliado = require('../models/afiliado');
+const afiliado = require('../models/afiliado');
 
 const afiliadoCtrl = {}
 
@@ -32,6 +33,36 @@ afiliadoCtrl.deleteAfiliado = async(req, res) => {
     await Afiliado.findByIdAndRemove(req.params.id);
     res.json({
         'status':'Afiliado Removed'
+    })
+}
+
+afiliadoCtrl.getAfiliadoByEmail = async(req, res) => {
+    const criteria = {
+        email: req.body.email
+    }
+
+    Afiliado.findOne(criteria, function(err, afil){
+        if(err){
+            res.json({
+                status: 0,
+                message: 'error'
+            })
+        }
+
+        if(!afil) {
+            res.json({
+                status: 0,
+                message: "Not Found"
+            })
+        }
+        else{
+            res.json({
+                status: 1,
+                message: "success",
+                id: afil._id,
+                existe: true
+            })
+        }
     })
 }
 
