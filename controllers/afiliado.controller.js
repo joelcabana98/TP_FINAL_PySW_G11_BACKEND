@@ -66,4 +66,40 @@ afiliadoCtrl.getAfiliadoByEmail = async(req, res) => {
     })
 }
 
+afiliadoCtrl.getAfiliadoByDni = async(req, res) => {
+    const criteria = {
+        dni: req.body.dni
+    }
+
+    Afiliado.findOne(criteria, function(err, afil){
+        if(err){
+            res.json({
+                status: 0,
+                message: 'error'
+            })
+        }
+
+        if(!afil) {
+            res.json({
+                status: 0,
+                message: "Not Found"
+            })
+        }
+        else{
+            res.json({
+                status: 1,
+                message: "success",
+                result: {
+                    _id:afil._id,
+                    apellido: afil.apellido,
+                    nombres: afil.nombres,
+                    dni: afil.dni,
+                    email: afil.email,
+                    imagen: afil.imagen,
+                    telefono: afil.telefono
+                }
+            })
+        }
+    })
+}
 module.exports = afiliadoCtrl;
