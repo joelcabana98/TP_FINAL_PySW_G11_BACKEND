@@ -12,6 +12,14 @@ noticiaCtrl.getNoticiasNotFiltre = async(req, res) => {
     res.json(noticias);
 }
 
+noticiaCtrl.getNoticiasByFecha = async(req, res) => {
+    noticias = await Noticia.find({
+        "fecha": { "$gte": req.body.desde, "$lt": req.body.hasta }
+    });
+    res.json(noticias);
+}
+
+
 noticiaCtrl.createNoticia = async(req, res) => {
     const noticia = new Noticia(req.body);
     await noticia.save();
