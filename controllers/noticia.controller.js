@@ -12,6 +12,8 @@ noticiaCtrl.getNoticiasNotFiltre = async(req, res) => {
     res.json(noticias);
 }
 
+
+
 noticiaCtrl.getNoticiasByFecha = async(req, res) => {
     noticias = await Noticia.find({
         "fecha": { "$gte": req.body.desde, "$lt": req.body.hasta }

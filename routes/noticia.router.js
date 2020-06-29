@@ -7,13 +7,13 @@ const noticiaCtrl = require('./../controllers/noticia.controller');
 
 // definiendo rutas
 router.get('/', noticiaCtrl.getNoticias);
+router.get('/noFiltre/', noticiaCtrl.getNoticiasNotFiltre);
 router.post('/', noticiaCtrl.createNoticia);
 router.get('/:id', noticiaCtrl.getNoticia);
 router.put('/:id', noticiaCtrl.editNoticia);
 router.delete('/:id', noticiaCtrl.deleteNoticia);
 
 //filtros
-router.get('/noFiltre/', noticiaCtrl.getNoticiasNotFiltre);
 router.post('/byDate', noticiaCtrl.getNoticiasByFecha);
 
 //exportacion del modulo de rutas
