@@ -39,6 +39,7 @@ usuarioCtrl.loginUsuario = async(req, res) => {
     //en req.body se espera que vengan las credenciales de login
     //defino los criterios de busqueda en base al username y password recibidos
     const criteria = {
+            activo: true,
             usuario: req.body.usuario,
             password: req.body.password
         }
