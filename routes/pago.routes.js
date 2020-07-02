@@ -8,7 +8,7 @@ const pagoCtrl = require('./../controllers/pago.controllers');
 // definiendo rutas
 router.get('/', pagoCtrl.getPagos);
 router.post('/', pagoCtrl.createPago);
-//router.get('/:id', noticiaCtrl.getNoticia);
+router.get('/:id', pagoCtrl.getPago);
 //router.put('/:id', noticiaCtrl.editNoticia);
 //router.delete('/:id', noticiaCtrl.deleteNoticia);
 

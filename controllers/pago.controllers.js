@@ -17,4 +17,10 @@ pagoCtrl.createPago = async (req, res) => {
     });
 }
 
+//Devolver un pago
+pagoCtrl.getPago = async (req, res) => {
+    const pago = await Pago.findById(req.params.id).populate("afiliado");
+    res.json(pago);
+}
+
 module.exports = pagoCtrl;
