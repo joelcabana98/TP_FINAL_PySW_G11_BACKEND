@@ -23,4 +23,21 @@ pagoCtrl.getPago = async (req, res) => {
     res.json(pago);
 }
 
+//modificar Pago
+pagoCtrl.editPago = async(req, res) => {
+    const vPago = new Pago(req.body);
+    await Pago.findByIdAndUpdate(req.params.id, {$set: vPago}, {new: true});
+    res.json({
+        'status': 'Pago updated'
+    })
+}
+
+//Eliminar Pago
+pagoCtrl.deletePago = async(req, res) => {
+    await Pago.findByIdAndRemove(req.params.id)
+    res.json({
+        'status': 'Pago removed'
+    })
+}
+
 module.exports = pagoCtrl;

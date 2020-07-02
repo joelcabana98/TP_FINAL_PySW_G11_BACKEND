@@ -9,8 +9,8 @@ const pagoCtrl = require('./../controllers/pago.controllers');
 router.get('/', pagoCtrl.getPagos);
 router.post('/', pagoCtrl.createPago);
 router.get('/:id', pagoCtrl.getPago);
-//router.put('/:id', noticiaCtrl.editNoticia);
-//router.delete('/:id', noticiaCtrl.deleteNoticia);
+router.put('/:id', pagoCtrl.editPago);
+router.delete('/:id', pagoCtrl.deletePago);
 
 //exportacion del modulo de rutas
 module.exports = router;
