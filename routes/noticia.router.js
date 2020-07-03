@@ -9,12 +9,13 @@ const noticiaCtrl = require('./../controllers/noticia.controller');
 router.get('/', noticiaCtrl.getNoticias);
 router.get('/noFiltre/', noticiaCtrl.getNoticiasNotFiltre);
 router.post('/', noticiaCtrl.createNoticia);
+router.post('/byDate/', noticiaCtrl.getNoticiasByFecha);
 router.get('/:id', noticiaCtrl.getNoticia);
 router.put('/:id', noticiaCtrl.editNoticia);
 router.delete('/:id', noticiaCtrl.deleteNoticia);
 
 //filtros
-router.post('/byDate', noticiaCtrl.getNoticiasByFecha);
+router.get('/notequals/:id', noticiaCtrl.getNoticiasIdNotEquals);
 
 //exportacion del modulo de rutas
 module.exports = router;

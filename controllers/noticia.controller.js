@@ -13,8 +13,16 @@ noticiaCtrl.getNoticiasNotFiltre = async(req, res) => {
 }
 
 
+noticiaCtrl.getNoticiasIdNotEquals = async(req, res) => {
+    noticias = await Noticia.find({ _id: { $ne: req.params.id } }).sort({ fecha: -1 }).populate("usuario", { "usuario": 1 });
+    res.json(noticias);
+}
+
+
 
 noticiaCtrl.getNoticiasByFecha = async(req, res) => {
+    console.log("entro backend by fecha" + req.body.desde + "   " + req.body.hasta);
+    console.log("entro backend by fecha" + req.params.desde + "   " + req.params.hasta);
     noticias = await Noticia.find({
         "fecha": { "$gte": req.body.desde, "$lt": req.body.hasta }
     });
