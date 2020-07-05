@@ -14,6 +14,7 @@ router.delete('/:id', pagoCtrl.deletePago);
 
 //rutas de busqueda
 router.post('/buscar/fechas', pagoCtrl.getPagosByDate);
+router.post('/buscar/afiliado', pagoCtrl.getPagosByAfiliado);
 
 //exportacion del modulo de rutas
 module.exports = router;

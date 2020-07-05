@@ -41,8 +41,16 @@ pagoCtrl.deletePago = async(req, res) => {
 }
 
 //Buscar pagos por rango de fecha
+//Se requiera { "fechaInicio": "una fecha", "fechaFin": "una fecha"}
 pagoCtrl.getPagosByDate = async(req, res) => {
     pagos = await Pago.find({ fecha: { $gte: req.body.fechaInicio, $lte: req.body.fechaFin } }).sort({ fecha: 1 }).populate("afiliado");
     res.json(pagos);
 }
+
+//Busca los pagos por id de afiliado mandar la id asi "_id":"asdasd"
+pagoCtrl.getPagosByAfiliado = async(req, res) => {
+    pagos = await Pago.find( { afiliado: req.body._id } );
+    res.json(pagos);
+}
+
 module.exports = pagoCtrl;
