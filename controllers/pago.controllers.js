@@ -40,4 +40,9 @@ pagoCtrl.deletePago = async(req, res) => {
     })
 }
 
+//Buscar pagos por rango de fecha
+pagoCtrl.getPagosByDate = async(req, res) => {
+    pagos = await Pago.find({ fecha: { $gte: req.body.fechaInicio, $lte: req.body.fechaFin } }).sort({ fecha: 1 });
+    res.json(pagos);
+}
 module.exports = pagoCtrl;
