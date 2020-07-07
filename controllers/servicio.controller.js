@@ -15,7 +15,7 @@ servicioCtrl.createServicio = async (req, res) => {
     });
 }
 
-servicioCtrl.getServicio = async(req, res) => {
+servicioCtrl.getServicioById = async(req, res) => {
     const servicio = await Servicio.findById(req.params.id).populate("afiliadosInsc");
     res.json(servicio);
 }

@@ -12,7 +12,8 @@ app.use('/api/usuario', require('./routes/usuario.router'));
 app.use('/api/afiliado', require('./routes/afiliado.router'));
 app.use('/api/noticia', require('./routes/noticia.router'));
 app.use('/api/pago', require('./routes/pago.routes'));
-app.use('/api/servicio', require('./routes/servicio.routes'));
+app.use('/api/servicio', require('./routes/servicio.router'));
+app.use('/api/novedad', require('./routes/novedad.router'));
 
 // Setting
 app.set('port', process.env.PORT || 3000);

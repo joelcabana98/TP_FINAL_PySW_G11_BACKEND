@@ -8,7 +8,7 @@ const servicioCtrl = require('../controllers/servicio.controller');
 // Definiendo rutas
 router.get('/', servicioCtrl.getServicios);
 router.post('/', servicioCtrl.createServicio);
-router.get('/:id', servicioCtrl.getServicio);
+router.get('/:id', servicioCtrl.getServicioById);
 router.put('/:id', servicioCtrl.editServicio);
 router.delete('/:id', servicioCtrl.deleteServicio);
 
