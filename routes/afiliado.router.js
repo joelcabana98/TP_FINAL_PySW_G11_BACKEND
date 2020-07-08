@@ -12,7 +12,7 @@ router.put('/:id', autCtrl.verifyTokenAdmins, afiliadoCtrl.editAfiliado);
 router.delete('/:id', autCtrl.verifyTokenAdmins, afiliadoCtrl.deleteAfiliado);
 
 //Rutas de busqueda
-router.post('/email', autCtrl.verifyTokenAdmins, afiliadoCtrl.getAfiliadoByEmail);
+router.post('/email', afiliadoCtrl.getAfiliadoByEmail);
 router.post('/dni', autCtrl.verifyTokenAdmins, afiliadoCtrl.getAfiliadoByDni);
 
 //exportacion del modulo de rutas
