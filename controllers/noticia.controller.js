@@ -14,7 +14,7 @@ noticiaCtrl.getNoticiasNotFiltre = async(req, res) => {
 
 
 noticiaCtrl.getNoticiasIdNotEquals = async(req, res) => {
-    noticias = await Noticia.find({ _id: { $ne: req.params.id } }).sort({ fecha: -1 }).populate("usuario", { "usuario": 1 });
+    noticias = await Noticia.find({ _id: { $ne: req.params.id }, "vigente": true }).sort({ fecha: -1 }).populate("usuario", { "usuario": 1 });
     res.json(noticias);
 }
 
