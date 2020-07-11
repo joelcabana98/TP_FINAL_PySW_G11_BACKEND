@@ -8,6 +8,7 @@ const novedadCtrl = require('../controllers/novedad.controller');
 // Definiendo rutas
 router.get('/', novedadCtrl.getNovedades);
 router.post('/', novedadCtrl.createNovedad);
+router.post('/byDate/', novedadCtrl.getNovedadById);
 router.get('/:id', novedadCtrl.getNovedadById);
 router.put('/:id', novedadCtrl.editNovedad);
 router.delete('/:id', novedadCtrl.deleteNovedad);

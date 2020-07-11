@@ -20,6 +20,13 @@ novedadCtrl.getNovedadById = async(req, res) => {
     res.json(novedad);
 }
 
+novedadCtrl.getNovedadesByFecha = async(req, res) => {
+    novedades = await Novedad.find({
+        "fecha": { "$gte": req.body.fechaDesde, "$lt": req.body.fechaHasta }
+    });
+    res.json(novedades);
+}
+
 novedadCtrl.editNovedad = async(req, res) => {
     const vNovedad = new Novedad(req.body);
     await Novedad.findByIdAndUpdate(req.params.id, {$set: vNovedad}, {new: true});
